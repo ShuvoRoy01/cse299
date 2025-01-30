@@ -1,0 +1,31 @@
+File: 0ba54e8a-6ec9-4e5d-921b-dc2bd666b22c.jpg
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: 1600w-vjI1KIbwj8o.webp
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: 428280f9-47d7-4f53-b0aa-8a38a5c6f44f.jpg
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: 56926ec0-3fd0-4c03-a608-f5c4754d2f27.jpg
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: id.webp
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: idcard.jpg
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: png-transparent-identity-document-identification-security-hologram-badge-template-identity-card-company-text-public-relations.png
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------
+
+File: student.jpg
+Ollama API Error: 404 - {"error":"model '1.3b' not found"}
+--------------------------------------------------

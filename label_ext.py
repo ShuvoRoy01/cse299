@@ -179,10 +179,10 @@ def extract_labels_from_web_form(url):
         labels = [q.get_text(strip=True) for q in questions]
         extracted_labels = "\n".join(labels)
 
-        print(f"✅ Extracted labels from Google Form.")
+        print(f" Extracted labels from Google Form.")
 
     except Exception as e:
-        print(f"❌ Error extracting from web form: {e}")
+        print(f" Error extracting from web form: {e}")
     finally:
         driver.quit()
 
@@ -203,7 +203,7 @@ def clean_json_response(response_text):
     try:
         json.loads(response_text)  # Test if it's valid JSON
     except json.JSONDecodeError:
-        print("❌ Invalid JSON format detected, returning empty JSON.")
+        print(" Invalid JSON format detected, returning empty JSON.")
         return '{"labels": []}'  # Return a default valid JSON
 
     return response_text
@@ -217,14 +217,13 @@ def generate_json_profile(aggregated_text):
     Uses retries and ensures valid JSON formatting.
     """
     profile_prompt = f"""
-Context:-You are an AI specialized in extracting and structuring form labels into a valid JSON format. Your task is to accurately extract **only the labels (field names) from the given form** and return the result in a **strictly valid JSON format**.
-There might be cases where there will be examples given inside a field of how to fill up that field. You need to understand that. Distinguish between example inside a field and labels
+Context:-You are an AI specialized in extracting and structuring form labels into a valid JSON format. There can be multiple file your task is to accurately extract **only the labels and check list that i have to fill up (field names) from the given form** and return the result in a **strictly valid JSON format**.
+         There might be cases where there will be examples given inside a field of how to fill up that field. You need to understand that. Distinguish between example inside a field and labels.just extract the labels that I need to fill up dont extact extra text.
 
 Example:- 
           input:-
-          C. Specific Experience
-            2. Research publications and achievements in Last 10 Years (2015 -Till) 
-             [ Full point for First Author or Corresponding Author; point will be proportional for other cases]
+          2. Research publications and achievements in Last 10 Years (2015 -Till) 
+            [ Full point for First Author or Corresponding Author; point will be proportional for other cases]
 
            a. Article Publication in Reported Journal:
             (i) Article in Web of Science indexed Journal with Impact Factor; Q1/Q2 Preferable
@@ -234,21 +233,75 @@ Example:-
             (ii) Article in Scopus indexed Journal excluding publications mentioned in (i); Q1/Q2 Preferable
                i. [Article Full Citation, Q?] – [Role as First Author/Corresponding Author/ Supervisor/ Co-Author]
                ii. [Article Full Citation, Q?] – [Role as First Author/Corresponding Author/ Supervisor/ Co-Author]
+
+            b. Book Publication for CSE/IT Tertiary Level
+               i. [Book Name] – [Authors Name] – [Publisher & Year] – [Your Involvement]
+               ii. [Book Name] – [Authors Name] – [Publisher & Year] – [Your Involvement]
+
               
         How the proccess has done (contextual information):- it is extracting all the labels as the user need to fill up. And here the first necessary field is a label and then in the next line there is another 
         necessary label which is a subclass of the previous detected label.Now what you have to do is in the output json set those labels as subclass which you think that should be a subclass of the previous extarcted label.
-        Don't repeat the same extracted label twice. if you think there is a same label is extracting twice you should mention its previous class label.
+        Don't repeat the same extracted label twice. if you think there is a same label is extracting twice you should mention its previous class label. 
 
             output:-
-            Specific Experience
-               Research Publications and Achievements (2015 - Till)
+            -Specific Experience
+               -Research Publications and Achievements (2015 - Till)
                  -Article Publication in Indexed Journals
                     -Web of Science Indexed Journals with Impact Factor
                     -Scopus Indexed Journals
                     -Citation details, Impact Factor, Q-Rank, Role (First Author/Corresponding Author/ Supervisor/Co-Author)
 
+                 -Book Publication for CSE/IT Tertiary Level
+                    -Book Name 
+                    -Authors Name 
+                    -Publisher & Year
+                    -Your Involvement              
 
 
+Example 2:- 
+context:- if there is any checklist available then extract all of them.
+
+   input:-  
+       Do you agree to the Department communicating with you by email or other electronic means?
+           (checklist)☐ No
+           (checklist)☐ Yes
+           If Yes, please provide your email address: [___________]      
+
+
+output:-
+{{
+ "Do you agree to the Department communicating with you by email or other electronic means?",
+  "options": [
+    "No",
+    "Yes"
+  ],
+  "email_field": "If Yes, please provide your email address"
+}}
+
+
+example 3:-
+input:- Applicants 16 years of age or over must provide a current document with a photograph and/or signature.
+       Acceptable documents include:
+       (checklist)☐ Australian driver’s licence
+       (checklist)☐ Passport
+       (checklist)☐ United Nations High Commissioner for Refugees (UNHCR) document
+       (checklist)☐ National identity card
+       (checklist)☐ Other document containing both a signature and photograph, such as:
+          
+  output(json):-  
+  {{
+  "requirement": "Applicants 16 years of age or over must provide a current document with a photograph and/or signature.",
+  "acceptable_documents": [
+    "Australian driver’s licence",
+    "Passport",
+    "United Nations High Commissioner for Refugees (UNHCR) document",
+    "National identity card",
+    "Other document containing both a signature and photograph, such as:",
+    
+  ]
+}}
+     
+      
 
 
 <<<
@@ -272,7 +325,7 @@ Example:-
             break  # Success, exit retry loop
 
         except json.JSONDecodeError:
-            print(f"❌ Invalid JSON response, retrying... (Attempt {attempt+1}/{retry_attempts})")
+            print(f" Invalid JSON response, retrying... (Attempt {attempt+1}/{retry_attempts})")
             time.sleep(5)
 
     # Return empty JSON if all retries fail
@@ -299,7 +352,7 @@ def main():
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(json_data, f, indent=4, ensure_ascii=False)
 
-    print(f"✅ Extracted data saved to {output_file}")
+    print(f" Extracted data saved to {output_file}")
 
 if __name__ == "__main__":
     main()

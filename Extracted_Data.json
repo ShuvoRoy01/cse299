@@ -1,0 +1,201 @@
+{
+    "application_details": {
+        "applicant_details": {
+            "preferred_title": "Title",
+            "full_name": "Full Name",
+            "sex": "Sex",
+            "date_of_birth": "Date of Birth",
+            "place_of_birth": "Place of Birth",
+            "other_names": "Other Names",
+            "reason_for_name_change": "Reason for Name Change",
+            "residential_addresses": [
+                {
+                    "address": "Address",
+                    "postcode": "Postcode",
+                    "date_from": "Date From",
+                    "date_to": "Date To"
+                }
+            ],
+            "postal_address": "Postal Address",
+            "telephone_numbers": {
+                "work": "Work Phone",
+                "home": "Home Phone",
+                "mobile": "Mobile Phone"
+            },
+            "email_addresses": [
+                "Email Address"
+            ],
+            "email_consent": "Email Consent (Yes/No)",
+            "surrogacy_arrangement": "Surrogacy Arrangement (Yes/No)",
+            "adoption": "Adoption (Yes/No)",
+            "citizenships": [
+                "Citizenship"
+            ],
+            "permanent_residency": [
+                "Permanent Residency"
+            ],
+            "passport_details": {
+                "passport_number": "Passport Number",
+                "passport_type": "Passport Type",
+                "country_of_passport": "Country of Passport",
+                "date_of_issue": "Date of Issue",
+                "date_of_expiry": "Date of Expiry",
+                "issuing_authority": "Issuing Authority"
+            },
+            "chinese_commercial_code_numbers": "Chinese Commercial Code Numbers",
+            "australian_driver_licence": {
+                "licence_number": "Driver's Licence Number",
+                "issuing_state": "Issuing State/Territory"
+            },
+            "australian_firearms_licence": {
+                "licence_number": "Firearms Licence Number",
+                "issuing_state": "Issuing State/Territory"
+            },
+            "visa_details": "Visa Label Number/Visa Grant Number"
+        },
+        "parent_details": [
+            {
+                "relationship": "Relationship to Applicant",
+                "full_name": "Full Name",
+                "chinese_commercial_code_numbers": "Chinese Commercial Code Numbers",
+                "sex": "Sex",
+                "date_of_birth": "Date of Birth",
+                "place_of_birth": "Place of Birth",
+                "other_names": "Other Names",
+                "reason_for_name_change": "Reason for Name Change",
+                "country_of_residence": "Country of Residence",
+                "australian_citizen_at_birth": "Australian Citizen at Birth (Yes/No)",
+                "citizenship_acquisition": "How did this parent acquire their Australian citizenship?",
+                "date_acquired": "Date Acquired",
+                "place_acquired": "Place Acquired",
+                "residency_in_australia": [
+                    {
+                        "date_from": "Date From",
+                        "date_to": "Date To"
+                    }
+                ],
+                "other_citizenships": [
+                    {
+                        "country": "Country",
+                        "date_acquired": "Date Acquired",
+                        "method_of_acquisition": "Method of Acquisition"
+                    }
+                ],
+                "court_exclusion": "Court Exclusion (Yes/No)",
+                "absence_from_australia": {
+                    "date_from": "Date From",
+                    "date_to": "Date To"
+                }
+            }
+        ],
+        "associated_family_details": [
+            {
+                "relationship": "Relationship",
+                "full_name": "Full Name",
+                "chinese_commercial_code_numbers": "Chinese Commercial Code Numbers",
+                "sex": "Sex",
+                "date_of_birth": "Date of Birth",
+                "place_of_birth": "Place of Birth",
+                "country_of_residence": "Country of Residence"
+            }
+        ],
+        "identity_documents": {
+            "applicant_16_or_over": [
+                "A current document with your photograph and/or signature",
+                "Evidence of your current residential address",
+                "Evidence of your date of birth, birth name and any changes of name",
+                "Evidence of your identity in the community"
+            ],
+            "child_under_16": [
+                "Evidence of the child's date of birth and birth name",
+                "A document with the child's photograph and current name",
+                "Evidence of any changes of name, if applicable",
+                "Evidence to show the link between the child and the Australian citizen parent",
+                "Evidence of the child's identity in the community"
+            ],
+            "identity_checklist": {
+                "photo_and_signature": [
+                    "Australian driver’s licence",
+                    "Passport",
+                    "United Nations High Commissioner for Refugees (UNHCR) document",
+                    "National identity card",
+                    "Other document containing both a signature and photograph"
+                ],
+                "residential_address": [
+                    "A utilities notice",
+                    "Rental contracts or rates notice"
+                ],
+                "date_of_birth": [
+                    "A full birth certificate",
+                    "Evidence of links between present and previous names"
+                ]
+            }
+        },
+        "travel_and_good_character": {
+            "overseas_travel": [
+                {
+                    "country": "Country",
+                    "date_from": "Date From",
+                    "date_to": "Date To",
+                    "reason": "Reason for Visit"
+                }
+            ],
+            "overseas_travel_12_months": "Overseas Travel 12 Months or More (Yes/No)",
+            "time_spent_in_australia": "Time Spent in Australia (Yes/No)",
+            "convictions": {
+                "any_offences": "Any Offences (Yes/No)",
+                "imprisonment_or_psychiatric_institution": "Imprisonment or Psychiatric Institution (Yes/No)",
+                "war_crimes_or_crimes_against_humanity": "War Crimes or Crimes Against Humanity (Yes/No)",
+                "probation_order": "Probation Order (Yes/No)",
+                "pending_proceedings": "Pending Proceedings (Yes/No)",
+                "illegal_movement_of_people": "Illegal Movement of People (Yes/No)",
+                "awaiting_legal_action": "Awaiting Legal Action (Yes/No)",
+                "association_with_terrorist_organisations": "Association with Terrorist Organisations (Yes/No)",
+                "removal_or_deportation": "Removal or Deportation (Yes/No)",
+                "risk_to_national_security": "Risk to National Security (Yes/No)"
+            },
+            "consent_to_police_check": "Consent to Police Check"
+        },
+        "supporting_documents": {
+            "parent_australian_citizen": "Evidence that at least one person who was your parent at the time of your birth was also an Australian citizen at that time",
+            "parent_residency": "If your parent was a citizen by descent, evidence that this parent was a resident of Australia for at least 2 years",
+            "parent_name_change": "Evidence of the Australian citizen parent’s name change and links between names, if applicable",
+            "parent_other_citizenships": "Evidence of other citizenships held by your Australian citizen parent, if any",
+            "passports_held": "Passports held, if any",
+            "responsible_parent_documents": {
+                "identification": "Proof of identification documents for the responsible parent applying on behalf of the child",
+                "custody_order": "Any order relating to the custody, guardianship or parental responsibility for the child"
+            }
+        },
+        "representative_details": {
+            "nominate_representative": "Nominate Representative (Yes/No)",
+            "representative_name": "Representative Name",
+            "representative_date_of_birth": "Representative Date of Birth",
+            "relationship_to_applicant": "Relationship to Applicant",
+            "representative_telephone_numbers": {
+                "work": "Work Phone",
+                "home": "Home Phone",
+                "mobile": "Mobile Phone"
+            },
+            "authority_to_disclose": "Authority to Disclose Information"
+        },
+        "payment_details": {
+            "payment_method": "Payment Method",
+            "credit_card_details": {
+                "credit_card_number": "Credit Card Number",
+                "expiry_date": "Expiry Date",
+                "cardholder_name": "Cardholder Name",
+                "telephone_number": "Telephone Number",
+                "address": "Address",
+                "postcode": "Postcode"
+            }
+        },
+        "declaration": {
+            "applicant_declaration": "Applicant Declaration",
+            "responsible_parent_declaration": "Responsible Parent Declaration"
+        },
+        "lodging_details": {
+            "lodging_location": "Lodging Location"
+        }
+    }
+}

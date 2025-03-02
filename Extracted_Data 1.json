@@ -1,0 +1,258 @@
+{
+    "Application for Australian citizenship by descent": {
+        "Part A - Your details": {
+            "Preferred title": null,
+            "Your full name": null,
+            "Sex": null,
+            "Date of birth": null,
+            "Place of birth": {
+                "Town/city": null,
+                "Country": null
+            },
+            "Other names, dates of birth or gender": null,
+            "Reason for change(s)": null,
+            "Residential addresses over the last 5 years": [
+                {
+                    "Current address": null,
+                    "Postcode": null
+                },
+                {
+                    "Previous address 1": null,
+                    "Date from": null,
+                    "Date to": null,
+                    "Postcode": null
+                },
+                {
+                    "Previous address 2": null,
+                    "Date from": null,
+                    "Date to": null,
+                    "Postcode": null
+                }
+            ],
+            "Current postal address": null,
+            "Telephone numbers": {
+                "Work": null,
+                "Home": null,
+                "Mobile/cell": null
+            },
+            "Email addresses": null,
+            "Consent to electronic communication": null,
+            "Surrogacy arrangement": null,
+            "Adoption": null,
+            "Present country(ies) of citizenship": null,
+            "Countries with permanent residency": null,
+            "Passport details": {
+                "Passport number": null,
+                "Passport type": null,
+                "Country of passport": null,
+                "Date of issue": null,
+                "Date of expiry": null,
+                "Issuing authority/Place of issue": null
+            },
+            "Chinese Commercial Code Numbers": null,
+            "Australian driver licence": {
+                "Licence number": null,
+                "Issuing state/territory": null
+            },
+            "Australian firearms licence": {
+                "Licence number": null,
+                "Issuing state/territory": null
+            },
+            "Visa label number": null
+        },
+        "Part B - Your parents": {
+            "Parent 1": {
+                "Relationship to you": null,
+                "Parent's full name": null,
+                "Name in Chinese Commercial Code Numbers": null,
+                "Sex": null,
+                "Date of birth": null,
+                "Place of birth": {
+                    "Town/city": null,
+                    "Country": null
+                },
+                "Other names": null,
+                "Reason for change(s)": null,
+                "Country of current residence": null,
+                "Australian citizen at time of birth": null,
+                "How acquired Australian citizenship": null,
+                "Date acquired": null,
+                "Place acquired": null,
+                "Period(s) in Australia (2 years)": [
+                    {
+                        "From": null,
+                        "To": null
+                    },
+                    {
+                        "From": null,
+                        "To": null
+                    }
+                ],
+                "Other citizenships": null,
+                "Parent excluded from custody/parental responsibility": null,
+                "Absent from Australia (7+ years)": null,
+                "Period absent": {
+                    "From": null,
+                    "To": null
+                }
+            },
+            "Parent 2": {
+                "Relationship to you": null,
+                "Parent's full name": null,
+                "Name in Chinese Commercial Code Numbers": null,
+                "Sex": null,
+                "Date of birth": null,
+                "Place of birth": {
+                    "Town/city": null,
+                    "Country": null
+                },
+                "Other names": null,
+                "Reason for change(s)": null,
+                "Country of current residence": null,
+                "Australian citizen at time of birth": null,
+                "How acquired Australian citizenship": null,
+                "Date acquired": null,
+                "Place acquired": null,
+                "Period(s) in Australia (2 years)": [
+                    {
+                        "From": null,
+                        "To": null
+                    },
+                    {
+                        "From": null,
+                        "To": null
+                    }
+                ],
+                "Other citizenships": null,
+                "Parent excluded from custody/parental responsibility": null,
+                "Absent from Australia (7+ years)": null,
+                "Period absent": {
+                    "From": null,
+                    "To": null
+                }
+            }
+        },
+        "Part C - Associated family": {
+            "Do you have any other immediate family members?": null,
+            "Family member details": [
+                {
+                    "Relationship to you": null,
+                    "Person's full name": null,
+                    "Name in Chinese Commercial Code Numbers": null,
+                    "Sex": null,
+                    "Date of birth": null,
+                    "Place of birth": {
+                        "Town/city": null,
+                        "State/province": null,
+                        "Country": null
+                    },
+                    "Country of current residence": null
+                },
+                {
+                    "Relationship to you": null,
+                    "Person's full name": null,
+                    "Name in Chinese Commercial Code Numbers": null,
+                    "Sex": null,
+                    "Date of birth": null,
+                    "Place of birth": {
+                        "Town/city": null,
+                        "State/province": null,
+                        "Country": null
+                    },
+                    "Country of current residence": null
+                },
+                {
+                    "Relationship to you": null,
+                    "Person's full name": null,
+                    "Name in Chinese Commercial Code Numbers": null,
+                    "Sex": null,
+                    "Date of birth": null,
+                    "Place of birth": {
+                        "Town/city": null,
+                        "State/province": null,
+                        "Country": null
+                    },
+                    "Country of current residence": null
+                }
+            ]
+        },
+        "Part D – Identity documents": {
+            "Identity documents (16+ years)": null,
+            "Identity documents (children)": null
+        },
+        "Part E – Identity declaration": {
+            "Family name": null,
+            "Given names": null,
+            "Telephone numbers": {
+                "Work": null,
+                "Home": null,
+                "Mobile/cell": null
+            },
+            "Australian citizen?": null,
+            "Profession/occupation group number": null,
+            "Applicant's full name": null
+        },
+        "Part F - Travel and good character": {
+            "Lived or travelled outside Australia (since 18)?": null,
+            "Countries visited": null,
+            "Lived or travelled outside Australia (12+ months)?": null,
+            "Spent time in Australia (since 18)?": null,
+            "Convictions (Australia/overseas)": null,
+            "Confined in prison/psychiatric institution": null,
+            "War crimes/crimes against humanity/human rights abuses": null,
+            "Probation order/good behaviour bond/parole/licence/periodic detention": null,
+            "Proceedings pending": null,
+            "Illegal movement of people": null,
+            "Charges awaiting legal action": null,
+            "Association with terrorist organisations/acts of terrorism": null,
+            "Removed/deported": null,
+            "Risk to Australian national security": null
+        },
+        "Part G – Supporting documents": {
+            "Evidence of parent's Australian citizenship": null,
+            "Evidence of parent's residency in Australia": null,
+            "Evidence of parent's name change": null,
+            "Evidence of other citizenships held by parent": null,
+            "Passports held": null,
+            "Documents relating to responsible parent (child under 16)": null,
+            "Proof of identification for responsible parent": null,
+            "Custody/guardianship/parental responsibility orders": null
+        },
+        "Part H – Nomination of representative": {
+            "Nominated person": {
+                "Family name": null,
+                "Given names": null,
+                "Date of birth": null,
+                "Relationship to main applicant": null,
+                "Telephone numbers": {
+                    "Work": null,
+                    "Home": null,
+                    "Mobile/cell": null
+                }
+            }
+        },
+        "Part I – Payment details": {
+            "Payment method": null,
+            "Credit card details": {
+                "Credit card number": null,
+                "Expiry date": null,
+                "Cardholder's name": null,
+                "Telephone number": null,
+                "Address": null,
+                "Postcode": null
+            }
+        },
+        "Part J - Declaration": {
+            "Applicant signature": null,
+            "Applicant date": null,
+            "Responsible parent signature (child under 16)": null,
+            "Responsible parent date": null,
+            "Responsible parent full name": null,
+            "Responsible parent telephone numbers": {
+                "Work": null,
+                "Home": null,
+                "Mobile/cell": null
+            }
+        }
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "Personal Information": {
+        "Name": null,
+        "Date of Birth and Age on Eol submission last date": null,
+        "NID": null,
+        "ADB CMS ID": null,
+        "Present Address": null,
+        "Permanent Address": null,
+        "Mobile and Telephone": null,
+        "Email": null,
+        "Website": null,
+        "Current/Latest Affiliation": null,
+        "Emergency Contact Person Name and Mobile": null
+    },
+    "Education Qualification": {
+        "PhD on/relevant higher education": {
+            "Degree/Exam Name": null,
+            "Passing Class/ Division/ Year": null,
+            "Grade": null,
+            "School/College Name": null,
+            "Board Name": null,
+            "Affiliated College Name": null,
+            "University Name": null
+        },
+        "MSc. in": {
+            "Degree/Exam Name": null,
+            "Passing Class/ Division/ Year": null,
+            "Grade": null,
+            "School/College Name": null,
+            "Board Name": null,
+            "Affiliated College Name": null,
+            "University Name": null
+        },
+        "BSc. in": {
+            "Degree/Exam Name": null,
+            "Passing Class/ Division/ Year": null,
+            "Grade": null,
+            "School/College Name": null,
+            "Board Name": null,
+            "Affiliated College Name": null,
+            "University Name": null
+        },
+        "HSC in": {
+            "Degree/Exam Name": null,
+            "Passing Class/ Division/ Year": null,
+            "Grade": null,
+            "School/College Name": null,
+            "Board Name": null,
+            "Affiliated College Name": null,
+            "University Name": null
+        },
+        "SSC in": {
+            "Degree/Exam Name": null,
+            "Passing Class/ Division/ Year": null,
+            "Grade": null,
+            "School/College Name": null,
+            "Board Name": null,
+            "Affiliated College Name": null,
+            "University Name": null
+        }
+    },
+    "Minimum Criteria Matching": {
+        "Nationality": null,
+        "Bachelor degree in Computer Science and Engineering or ICT relevant subject": null,
+        "PhD in IT relevant subject": null,
+        "15 years of working experience in teaching and research": null,
+        "07 years of experience in CSE/IT curriculum development for graduate or post graduate level": null
+    },
+    "Detailed Scoring": {
+        "Educational Qualification": {
+            "BSc Degree Name, Year, Institute": null,
+            "MSc Degree Name, Year, Institute": null,
+            "PhD Degree Name, Year, Institute": null
+        },
+        "General Experience": {
+            "Start": null,
+            "End": null,
+            "Duration in Year & Month": null,
+            "Your Position, Project/Division, Employment Organization, Source of Funds, Summary of activities performed": null
+        },
+        "Specific Experience": {
+            "Research publications and achievements in Last 10 Years (2015-Till)": {
+                "Article Publication in Reported Journal": {
+                    "Article in Web of Science indexed Journal with Impact Factor": {
+                        "Article Full Citation, IF, Q?, Role as First Author/Corresponding Author/ Supervisor/ Co-Author": null
+                    },
+                    "Article in Scopus indexed Journal excluding publications mentioned in (i)": {
+                        "Article Full Citation, Q?, Role as First Author/Corresponding Author/ Supervisor/ Co-Author": null
+                    }
+                },
+                "Book Publication for CSE/IT Tertiary Level": {
+                    "Book Name": null,
+                    "Authors Name": null,
+                    "Publisher & Year": null,
+                    "Your Involvement": null
+                },
+                "Other Research Achievements (e.g., Award)": null
+            },
+            "Experience in tertiary education level accreditation activities": {
+                "Start": null,
+                "End": null,
+                "Duration in Year & Month": null,
+                "Your Position, Project/Division, Employment Organization, Source of Funds, Summary of activities performed": null
+            },
+            "Developing CSE/IT tertiary education and scientific research to meet the market demand from rapid technological changes from the 4IR": {
+                "Working information": null,
+                "Time Line": null
+            },
+            "Support the design of curriculum, syllabus, specialization course, teaching materials to make them more industry-responsive": {
+                "Working information": null,
+                "Time Line": null
+            },
+            "Support for international accreditation (e.g., Washington Accord) in close consultation with BAETE": {
+                "Working information": null,
+                "Time Line": null
+            },
+            "Working Experience with Project Management and Research / Innovation Grant": {
+                "Project Name, Source of Fund": null,
+                "Position": null,
+                "Responsibility": null,
+                "Time Line": null
+            },
+            "Additional Information regarding Experience, Service, Training, Achievement, etc.": null
+        }
+    },
+    "Brief Justification to be Competent for the Position": null
+}

@@ -1,34 +1,42 @@
 import json
 import time
-import google.generativeai as genai
-import google.api_core.exceptions
 import tkinter as tk
 from tkinter import filedialog
-import os
-from difflib import get_close_matches
+import google.generativeai as genai
+import google.api_core.exceptions  # For handling API errors
 
-# Configure Google Gemini API (Replace 'YOUR_API_KEY' with your actual key)
-genai.configure(api_key="AIzaSyBmuqdZc1uBK5TQHS323JVcVCuM-0Y48e0")
+# Configure Gemini API (Replace 'YOUR_API_KEY' with your actual key)
+genai.configure(api_key="AIzaSyA5NsarKaBHTnF2Rx0aQJP4wd1jcRrONjs")
 
 def format_nested_dict(key, value):
-    """Formats a nested dictionary into a structured string."""
+    """Formats a nested dictionary into a bullet-pointed string."""
     if isinstance(value, dict):
-        formatted = f"{key}:\n"
+        formatted = f"{key}:-\n"
         for sub_key, sub_value in value.items():
-            formatted += f"  - {sub_key}: {sub_value}\n"
+            formatted += f"# {sub_key}: {sub_value}\n"
         return formatted.strip()
     return f"{key}: {value}"
 
+def extract_labels(data, labels_list):
+    """Recursively extracts all labels from a nested JSON structure."""
+    if isinstance(data, dict):
+        for key, value in data.items():
+            labels_list.append(key)
+            extract_labels(value, labels_list)
+    elif isinstance(data, list):
+        for item in data:
+            extract_labels(item, labels_list)
+
 def call_gemini(prompt):
-    """Calls Gemini 1.5 Flash to find the best matching label."""
+    """Calls the Gemini API to get the best-matching label."""
     model = genai.GenerativeModel("gemini-1.5-flash")
-    retries = 3  # Number of retries in case of API failure
+    retries = 3  # Number of retries
     for attempt in range(retries):
         try:
             response = model.generate_content(prompt)
-            return response.text.strip()
+            return response.text
         except google.api_core.exceptions.ResourceExhausted:
-            wait_time = 15
+            wait_time = 15 # Wait 10 seconds before retrying
             print(f"Quota exceeded! Retrying in {wait_time} seconds... ({attempt + 1}/{retries})")
             time.sleep(wait_time)
         except Exception as e:
@@ -37,96 +45,88 @@ def call_gemini(prompt):
     print("Error: Exceeded API quota. Try again later.")
     return None
 
-# Initialize Tkinter and hide the root window
+def search_and_extract_data(label, data, output_file):
+    """Searches for a label in the data and extracts its value if found."""
+    if isinstance(data, dict):
+        for key, value in data.items():
+            if key == label:
+                formatted_output = format_nested_dict(key, value)
+                output_file.write(formatted_output + "\n\n")
+            else:
+                search_and_extract_data(label, value, output_file)
+    elif isinstance(data, list):
+        for item in data:
+            search_and_extract_data(label, item, output_file)
+
+# Initialize Tkinter and hide the root window.
 root = tk.Tk()
 root.withdraw()
 
-# Step 1: Select JSON file containing data
-json_file_path = filedialog.askopenfilename(
-    title="Select JSON file with data",
+# Open a file chooser dialog to let the user select the labels-only JSON file.
+labels_json_path = filedialog.askopenfilename(
+    title="Select JSON file with labels only",
     filetypes=[("JSON files", "*.json")]
 )
-if not json_file_path:
-    print("No file selected. Exiting.")
+
+if not labels_json_path:
+    print("No labels JSON file selected. Exiting.")
     exit(1)
 
-# Load JSON data
-try:
-    with open(json_file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-except json.JSONDecodeError:
-    print("Error: Invalid JSON file. Exiting.")
-    exit(1)
-except Exception as e:
-    print(f"Error loading JSON file: {e}")
-    exit(1)
-
-# Step 2: Select JSON file containing labels
-labels_file_path = filedialog.askopenfilename(
-    title="Select JSON file with labels",
+# Open a file chooser dialog to let the user select the JSON file with labels and data.
+data_json_path = filedialog.askopenfilename(
+    title="Select JSON file with labels and data",
     filetypes=[("JSON files", "*.json")]
 )
-if not labels_file_path:
-    print("No labels file selected. Exiting.")
+
+if not data_json_path:
+    print("No data JSON file selected. Exiting.")
     exit(1)
 
-# Load labels JSON
+# Load the labels-only JSON data.
 try:
-    with open(labels_file_path, "r", encoding="utf-8") as f:
-        labels_json = json.load(f)
+    with open(labels_json_path, "r", encoding="utf-8") as f:
+        labels_data = json.load(f)
 except json.JSONDecodeError:
-    print("Error: Invalid labels JSON file. Exiting.")
+    print("Error: The selected labels file is not a valid JSON file. Exiting.")
     exit(1)
 except Exception as e:
     print(f"Error loading labels JSON file: {e}")
     exit(1)
 
-# Extract labels (if JSON is a dict, use keys; if it's a list, use the list)
-if isinstance(labels_json, dict):
-    labels_list = list(labels_json.keys())
-elif isinstance(labels_json, list):
-    labels_list = labels_json
-else:
-    print("Error: Labels JSON file format is incorrect.")
+# Load the JSON data with labels and their corresponding data.
+try:
+    with open(data_json_path, "r", encoding="utf-8") as f:
+        data_with_values = json.load(f)
+except json.JSONDecodeError:
+    print("Error: The selected data file is not a valid JSON file. Exiting.")
+    exit(1)
+except Exception as e:
+    print(f"Error loading data JSON file: {e}")
     exit(1)
 
-# Step 3: Match labels using Gemini and fallback fuzzy matching, then extract data
-filled_data = {}
-json_keys = list(data.keys())  # Available keys in the data JSON
+# Extract all labels from the labels-only JSON file.
+labels_list = []
+extract_labels(labels_data, labels_list)
 
-for query in labels_list:
-    # Prepare prompt for Gemini
-    prompt = (
-        f"I have a label '{query}'. From the following options:\n"
-        f"{json_keys}\n"
-        "Identify the key that best corresponds in meaning to the label. "
-        "Respond with the exact key name if a match is found, or respond with 'Not found' if no match is appropriate."
-    )
-
-    matched_label = call_gemini(prompt)
-    # Check if the Gemini response is valid and exists in data
-    if matched_label and matched_label in data:
-        print(f"Gemini matched '{query}' to '{matched_label}'.")
-        filled_data[query] = data[matched_label]
-    else:
-        # Fallback: use fuzzy matching (difflib) if Gemini does not yield a valid key
-        fallback_matches = get_close_matches(query, json_keys, n=1, cutoff=0.6)
-        if fallback_matches:
-            fallback_label = fallback_matches[0]
-            print(f"Fallback matched '{query}' to '{fallback_label}'.")
-            filled_data[query] = data[fallback_label]
+# Open a text file to write the extracted data.
+output_file_path = "extracted_data.txt"
+with open(output_file_path, "w", encoding="utf-8") as output_file:
+    # Use Gemini to find the best-matching label and extract its value.
+    for label in labels_list:
+        # Create a prompt for Gemini to find the best-matching label in the data JSON.
+        prompt = (
+            f"Given the following JSON data:\n{json.dumps(data_with_values, indent=2)}\n\n"
+            f"Find the best-matching label for '{label}' in the JSON data. "
+            f"Return the label and its corresponding value in a clear, formatted manner."
+        )
+        
+        # Call Gemini to get the best-matching label and value.
+        gemini_response = call_gemini(prompt)
+        if gemini_response:
+            output_file.write(f"Label: {label}\n")
+            output_file.write(f"Best Match and Value:\n{gemini_response}\n\n")
         else:
-            print(f"No match found for '{query}'.")
-            filled_data[query] = "Not found"
+            output_file.write(f"Label: {label}\n")
+            output_file.write("No matching label found.\n\n")
 
-# Step 4: Save the extracted data to a text file
-output_filename = "matched_labels_output.txt"
-output_path = os.path.join(os.path.dirname(json_file_path), output_filename)
-
-with open(output_path, "w", encoding="utf-8") as f:
-    f.write("Extracted Data Based on Labels\n")
-    f.write("=" * 40 + "\n\n")
-    for key, value in filled_data.items():
-        f.write(format_nested_dict(key, value) + "\n\n")
-
-print(f"✅ Extracted data saved to: {output_path}")
+print(f"Data extraction complete. Extracted data saved to {output_file_path}")
